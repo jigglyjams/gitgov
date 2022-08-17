@@ -1,5 +1,3 @@
-import { TargetLanguageCode } from 'deepl-node';
-
 export interface Proposal {
   hash: string;
   title: string;
@@ -38,7 +36,7 @@ export interface NanceConfig {
   votingResultsDashboard: string;
   translation: {
     api: string;
-    targetLanguage: TargetLanguageCode;
+    targetLanguage: string;
     storage: {
       user: string;
       repo: string;
