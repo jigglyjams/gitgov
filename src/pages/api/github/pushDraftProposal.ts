@@ -12,7 +12,8 @@ export default async function pushDraftProposal(req, res) {
     'jigglyjams',
     `${space}-governance`
   );
-  const path = `DRAFT/GC${governanceCycle}/DRAFT-${nanoid()}.md`;
+  const hash = nanoid();
+  const path = `drafts/DRAFT-${hash}.md`;
   github.createCommitOnBranch([
     {
       path,
