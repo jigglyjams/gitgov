@@ -19,7 +19,7 @@ export default async function pushDraftProposal(req, res) {
       path,
       contents: req.body.content
     }
-  ], 'hi');
+  ], hash);
 
   res.status(200).json({ url: `https://github.com/jigglyjams/dev-governance/tree/main/${path}` });
 }
