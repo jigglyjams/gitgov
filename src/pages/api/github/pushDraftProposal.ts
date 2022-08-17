@@ -14,12 +14,12 @@ export default async function pushDraftProposal(req, res) {
   );
   const hash = nanoid();
   const path = `drafts/DRAFT-${hash}.md`;
-  github.createCommitOnBranch([
+  await github.createCommitOnBranch([
     {
       path,
       contents: req.body.content
     }
-  ], hash);
-
-  res.status(200).json({ url: `https://github.com/jigglyjams/dev-governance/tree/main/${path}` });
+  ], hash).then(() => {
+    res.status(200).json({ url: `https://github.com/jigglyjams/dev-governance/tree/main/${path}` });
+  });
 }
